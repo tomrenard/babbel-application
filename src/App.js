@@ -1,10 +1,11 @@
-import React, { useState }  from 'react';
+import React, { useState, useEffect }  from 'react';
 import styled from 'styled-components';
 import logo from './assets/babbel.png';
 import { BsArrowRight } from 'react-icons/bs';
 import { RiArrowDropDownFill } from 'react-icons/ri';
 import { VscGlobe } from 'react-icons/vsc';
 import { useSpring, animated, config } from 'react-spring';
+import useWindowDimensions from './useWindowDimensions';
 
 const HeaderStyles = styled.div`
   width: 100%;
@@ -79,8 +80,17 @@ export default function App() {
     config: config.molasses,
     onRest: () => set(!flip),
   })
-  return(
-    <>
+  useEffect(() => {
+  }, []);
+  const { height, width } = useWindowDimensions();
+  console.log(width);
+  if (width < 900) { return(
+    <div>
+      <p>Please access this awesome and simple easter egg on a wider screen.</p>
+    </div>
+    );}
+    else { return (
+      <>
       <HeaderStyles>
         <BannerStyles>
           <h2>SUMMER SALE: up to 30% off!<BsArrowRight style={{ verticalAlign: "center"}}/></h2>
@@ -111,5 +121,5 @@ export default function App() {
         </ContentStyles>
       </div>
     </>
-  );
+    )}
 }
