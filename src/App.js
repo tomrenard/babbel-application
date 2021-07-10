@@ -93,7 +93,7 @@ export default function App() {
       <>
       <HeaderStyles>
         <BannerStyles>
-          <h2>SUMMER SALE: up to 30% off!<BsArrowRight style={{ verticalAlign: "center"}}/></h2>
+          <h2>SUMMER SALE: up to 30% off!<BsArrowRight style={{ verticalAlign: "bottom"}}/></h2>
         </BannerStyles>
         <NavStyles>
         <div style={{ display: 'flex'}}>
